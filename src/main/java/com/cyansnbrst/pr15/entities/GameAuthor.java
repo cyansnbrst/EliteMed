@@ -31,4 +31,12 @@ public class GameAuthor {
     public void setGames(List<Game> games) {
         this.games = games;
     }
+
+    @Override
+    public String toString() {
+        return "GameAuthor{" +
+                "id=" + id +
+                ", nickname='" + nickname +
+                '}';
+    }
 }

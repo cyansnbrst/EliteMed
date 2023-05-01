@@ -11,7 +11,4 @@ public class Pr15Application {
         SpringApplication.run(Pr15Application.class, args);
     }
 
-    // Задание 16.
-
-
 }

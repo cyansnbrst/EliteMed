@@ -30,4 +30,12 @@ public class Game {
     public void setAuthor(GameAuthor author) {
         this.author = author;
     }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "id=" + id +
+                ", name='" + name +
+                '}';
+    }
 }
