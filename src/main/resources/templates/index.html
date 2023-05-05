@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Elite Med</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Navigation bar -->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">ЭлитМед</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/home">Главная</a></li>
+                <li><a href="/make_an_appointment">Записаться на прием</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/account">Личный кабинет</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Jumbotron -->
+<div class="jumbotron">
+    <div class="container">
+        <h1>Добро пожаловать в ЭлитМед, <span th:text="${logged_in_user}"></span>!</h1>
+        <p>Лучшие медицинские услуги</p>
+        <p><a class="btn btn-primary btn-lg" href="/make_an_appointment" role="button">Записаться на прием</a></p>
+    </div>
+</div>
+
+<!-- Services section -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Service 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie, velit vitae tristique
+                bibendum, magna nunc hendrerit nunc, nec tincidunt nisi est vel enim. Integer eget nibh
+                sit amet lorem vestibulum sodales vel eu nulla.</p>
+            <p><a class="btn btn-default" href="#" role="button">Learn more</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Service 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie, velit vitae tristique
+                bibendum, magna nunc hendrerit nunc, nec tincidunt nisi est vel enim. Integer eget nibh sit amet lorem
+                vestibulum sodales vel eu nulla.</p>
+            <p><a class="btn btn-default" href="#" role="button">Learn more</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Service 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie, velit vitae tristique
+                bibendum, magna nunc hendrerit nunc, nec tincidunt nisi est vel enim. Integer eget nibh
+                sit amet lorem vestibulum sodales vel eu nulla.</p>
+            <p><a class="btn btn-default" href="#" role="button">Learn more</a></p>
+        </div>
+    </div>
+
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Elite Med &copy; 2023</p>
+    </div>
+</footer>
+</body>
+</html>

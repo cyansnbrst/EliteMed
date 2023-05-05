@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Elite Med</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Navigation bar -->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">ЭлитМед</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/home">Главная</a></li>
+                <li><a href="/make_an_appointment">Записаться на прием</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/account">Личный кабинет</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>Авторизация</h1>
+    <h4>Для продолжения необходимо войти в систему</h4>
+    <form action="#" th:action="@{/login}" method="post">
+        <div class="form-group">
+            <label for="username">Логин:</label>
+            <input type="text" class="form-control" id="username" name="username"/>
+        </div>
+        <div>
+            <label for="password">Пароль:</label>
+            <input type="password" class="form-control"  id="password" name="password"/>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </div>
+        <div th:if="${param.error}">
+            <p>Неверный логин или пароль. Попробуйте снова</p>
+        </div>
+        <p>Еще нет аккаунта? <a href="/registration">Зарегистрироваться</a></p>
+    </form>
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Elite Med &copy; 2023</p>
+    </div>
+</footer>
+</body>
+</html>
+</body>
+</html>

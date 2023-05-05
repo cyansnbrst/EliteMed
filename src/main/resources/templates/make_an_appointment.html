@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Elite Med</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Navigation bar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home">ЭлитМед</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/home">Главная</a></li>
+        <li class="active"><a href="/make_an_appointment">Записаться на прием</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/account">Личный кабинет</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <h1>Запись к врачу</h1>
+  <!-- Форма для записи к врачу -->
+  <form method="post" th:action="@{/appointments}" th:object="${appointment}">
+    <!-- Поле ФИО -->
+    <div class="form-group">
+      <label for="name">ФИО</label>
+      <input type="text" class="form-control" id="name" th:field="*{}">
+    </div>
+    <!-- Поле E-mail -->
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="email" class="form-control" id="email" th:field="*{email}">
+    </div>
+    <!-- Выбор доктора -->
+    <div class="form-group">
+      <label for="doctor">Доктор</label>
+      <select class="form-control" id="doctor" th:field="*{doctor}">
+        <option value="">Выберите доктора</option>
+        <option value="1">Доктор 1</option>
+        <option value="2">Доктор 2</option>
+        <option value="3">Доктор 3</option>
+      </select>
+    </div>
+    <!-- Выбор времени -->
+    <div class="form-group">
+      <label for="time">Время</label>
+      <select class="form-control" id="time" th:field="*{time}">
+        <option value="">Выберите время</option>
+        <option value="9:00">9:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+      </select>
+    </div>
+    <!-- Кнопка отправки формы -->
+    <button type="submit" class="btn btn-primary">Записаться</button>
+  </form>
+</div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">Elite Med &copy; 2023</p>
+  </div>
+</footer>
+</body>
+</html>
