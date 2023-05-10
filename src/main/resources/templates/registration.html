@@ -19,38 +19,38 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/home">Главная</a></li>
-                <li><a href="/make_an_appointment">Записаться на прием</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="/appointment_list">Мои записи</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/account">Личный кабинет</a></li>
             </ul>
         </div>
     </div>
-    <div class="container">
-        <h1>Регистрация</h1>
-        <form th:action="@{/registration}" th:object="${user}" method="post">
-            <div class="form-group">
-                <div>
-                    <label for="username">Придумайте логин:</label>
-                    <input type="text" class="form-control" id="username" th:field="*{username}"/>
-                </div>
-                <div>
-                    <label for="password">Придумайте пароль:</label>
-                    <input type="password" class="form-control" id="password" th:field="*{password}"/>
-                </div>
-                <div>
-                    <input type="submit" class="btn btn-primary" value="Зарегистрироваться"/>
-                </div>
+</nav>
+<div class="container">
+    <h1>Регистрация</h1>
+    <form th:action="@{/registration}" th:object="${user}" method="post">
+        <div class="form-group">
+            <div>
+                <label for="username">Придумайте логин:</label>
+                <input type="text" class="form-control" id="username" th:field="*{username}"/>
             </div>
-            <p>Уже есть аккаунт? <a href="/login">Войти</a></p>
-        </form>
-    </div>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted">Elite Med &copy; 2023</p>
+            <div>
+                <label for="password">Придумайте пароль:</label>
+                <input type="password" class="form-control" id="password" th:field="*{password}"/>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="Зарегистрироваться"/>
+            </div>
         </div>
-    </footer>
+        <p>Уже есть аккаунт? <a href="/login">Войти</a></p>
+    </form>
+</div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Elite Med &copy; 2023</p>
+    </div>
+</footer>
 </body>
 </html>

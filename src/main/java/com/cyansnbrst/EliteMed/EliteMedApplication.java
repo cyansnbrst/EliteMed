@@ -1,5 +1,7 @@
 package com.cyansnbrst.EliteMed;
 
+import com.cyansnbrst.EliteMed.services.AppointmentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

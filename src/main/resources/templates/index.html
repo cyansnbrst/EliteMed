@@ -19,8 +19,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/home">Главная</a></li>
-                <li><a href="/make_an_appointment">Записаться на прием</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="/appointment_list">Мои записи</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/account">Личный кабинет</a></li>
@@ -32,9 +31,9 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
     <div class="container">
-        <h1>Добро пожаловать в ЭлитМед, <span th:text="${logged_in_user}"></span>!</h1>
+        <h1>Добро пожаловать в ЭлитМед!</h1>
         <p>Лучшие медицинские услуги</p>
-        <p><a class="btn btn-primary btn-lg" href="/make_an_appointment" role="button">Записаться на прием</a></p>
+        <p><a class="btn btn-primary btn-lg" href="/account" role="button">Записаться на прием</a></p>
     </div>
 </div>
 
@@ -42,25 +41,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h2>Service 1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie, velit vitae tristique
-                bibendum, magna nunc hendrerit nunc, nec tincidunt nisi est vel enim. Integer eget nibh
-                sit amet lorem vestibulum sodales vel eu nulla.</p>
-            <p><a class="btn btn-default" href="#" role="button">Learn more</a></p>
+            <h2>ЛУЧШИЕ ДОКТОРА</h2>
+            <p>В клиниках организован контроль качества обслуживания – врачебная комиссия оценивает эффективность работы
+                каждого врача и разбирает каждое обращение.</p>
         </div>
         <div class="col-md-4">
-            <h2>Service 2</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie, velit vitae tristique
-                bibendum, magna nunc hendrerit nunc, nec tincidunt nisi est vel enim. Integer eget nibh sit amet lorem
-                vestibulum sodales vel eu nulla.</p>
-            <p><a class="btn btn-default" href="#" role="button">Learn more</a></p>
+            <h2>КАЧЕСТВО И КОМФОРТ</h2>
+            <p>Частная клиника всегда заботится о комфорте пациентов, поэтому вас ждут удобные и стильные зоны общего
+                пользования, уютные кабинеты врачей и безукоризненная чистота и стерильность.</p>
         </div>
         <div class="col-md-4">
-            <h2>Service 3</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut molestie, velit vitae tristique
-                bibendum, magna nunc hendrerit nunc, nec tincidunt nisi est vel enim. Integer eget nibh
-                sit amet lorem vestibulum sodales vel eu nulla.</p>
-            <p><a class="btn btn-default" href="#" role="button">Learn more</a></p>
+            <h2>УДОБСТВО</h2>
+            <p>В платной клинике вас ждет сервис европейского уровня, вежливые и внимательные администраторы,
+                приветливый персонал и заботливые врачи, каждый из которых является первоклассным профессионалом своего
+                дела.</p>
         </div>
     </div>
 

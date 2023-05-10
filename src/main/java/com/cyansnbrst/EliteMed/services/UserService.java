@@ -1,6 +1,5 @@
 package com.cyansnbrst.EliteMed.services;
 
-
 import com.cyansnbrst.EliteMed.entities.User;
 import com.cyansnbrst.EliteMed.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -16,7 +15,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<User> list() {
+    public List<User> getAllUsers() {
         return  userRepository.findAll();
     }
 
@@ -28,8 +27,20 @@ public class UserService {
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
     public void addUser(User user) {
         userRepository.save(user);
+    }
+
+    public void deleteUser(Integer id) {
+        boolean exists = userRepository.existsById(id);
+        if (exists) {
+            userRepository.deleteById(id);
+        }
+    }
+
+    public User findUserById(Integer id) {
+        return userRepository.findUserById(id);
     }
 }
 

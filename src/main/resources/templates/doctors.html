@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Elite Med</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <h1>Админ-панель сайта EliteMed</h1>
+  <div>
+    <a class="btn btn-primary" href="/admin" role="button">Назад</a>
+  </div>
+  <h3>Доступные действия</h3>
+  <div class="container">
+    <h1>Доктора</h1>
+    <div class="container" th:each="doctor: ${doctors_list}">
+      <h3>Врач №<span th:text="${doctor.id}"></span></h3>
+      <ul class="list-group">
+        <li class="list-group-item">Имя: <span th:text="${doctor.name}"></span></li>
+        <li class="list-group-item">Должность: <span th:text="${doctor.position.toLowerCase()}"></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Добавить врача</h1>
+    <form action="#" th:action="@{/admin/doctors/add}" method="post">
+      <div class="form-group">
+        <label for="name">Введите имя врача: </label>
+        <input type="text" class="form-control" id="name" name="name"/>
+        <label for="position">Введите должность врача: </label>
+        <input type="text" class="form-control" id="position" name="position"/>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+      </div>
+    </form>
+  </div>
+  <div class="container">
+    <h1>Удалить врача</h1>
+    <form action="#" th:action="@{/admin/doctors/delete}" method="post">
+      <div class="form-group">
+        <label for="doctor_id">Введите ID врача: </label>
+        <input type="text" class="form-control" id="doctor_id" name="doctor_id"/>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Удалить</button>
+      </div>
+    </form>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">Elite Med &copy; 2023</p>
+  </div>
+</footer>
+</body>
+</html>

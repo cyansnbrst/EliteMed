@@ -5,12 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @Entity
-@Table(name="appointment")
+@Table(name= "appointments")
 @NoArgsConstructor
 public class Appointment {
     @Id
@@ -18,16 +16,16 @@ public class Appointment {
     @Column(name = "id")
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "patient")
     private Patient patient;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "doctor")
     private Doctor doctor;
 
     @Column(name = "date")
-    private Date date;
+    private String date;
 
     @Override
     public String toString() {

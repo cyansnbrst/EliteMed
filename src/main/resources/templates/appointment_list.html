@@ -19,7 +19,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/home">Главная</a></li>
-                <li><a href="/appointment_list">Мои записи</a></li>
+                <li class="active"><a href="/appointment_list">Мои записи</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/account">Личный кабинет</a></li>
@@ -28,24 +28,28 @@
     </div>
 </nav>
 <div class="container">
-    <h1>Авторизация</h1>
-    <h4>Для продолжения необходимо войти в систему</h4>
-    <form action="#" th:action="@{/login}" method="post">
+    <h1>Мои записи</h1>
+    <div class="container" th:each="appointment: ${appointment_list}">
+        <h3>Запись №<span th:text="${appointment.id}"></span></h3>
+        <ul class="list-group">
+            <li class="list-group-item">Время: <span th:text="${appointment.date}"></span></li>
+            <li class="list-group-item">Врач: <span th:text="${appointment.doctor.name}"></span>, <span th:text="${appointment.doctor.position.toLowerCase()}"></span></li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <h1>Отменить запись</h1>
+    <form action="#" th:action="@{/appointment_list}" method="post">
         <div class="form-group">
-            <label for="username">Логин:</label>
-            <input type="text" class="form-control" id="username" name="username"/>
+            <label for="appointment_id">Введите номер записи, которую вы хотите удалить: </label>
+            <input type="number" class="form-control" id="appointment_id" name="appointment_id"/>
         </div>
         <div>
-            <label for="password">Пароль:</label>
-            <input type="password" class="form-control"  id="password" name="password"/>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-primary">Войти</button>
+            <button type="submit" class="btn btn-primary">Удалить</button>
         </div>
         <div th:if="${param.error}">
-            <p>Неверный логин или пароль. Попробуйте снова</p>
+            <p>Такой записи не существует или она не привязана к вашему аккаунту</p>
         </div>
-        <p>Еще нет аккаунта? <a href="/registration">Зарегистрироваться</a></p>
     </form>
 </div>
 <!-- Footer -->

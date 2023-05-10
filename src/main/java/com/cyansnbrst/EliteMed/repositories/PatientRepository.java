@@ -8,7 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Integer>, JpaSpecificationExecutor<Patient> {
-    Patient findByName(String name);
-    boolean existsByName(String name);
     Patient findByUserId(User userId);
 }

@@ -19,8 +19,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/home">Главная</a></li>
-                <li><a href="/make_an_appointment">Записаться на прием</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="/appointment_list">Мои записи</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="/account">Личный кабинет</a></li>
@@ -34,7 +33,7 @@
     <ul class="list-group">
         <li class="list-group-item">Ваш никнейм: <span th:text="${logged_in_user}"></span></li>
         <li class="list-group-item">Ваше ФИО:
-            <form th:if="${patient_doesnt_exist}" th:action="@{/account}" th:object="${patient}" method="post">
+            <form th:if="${patient_doesnt_exist}" th:action="@{/account.patient}" th:object="${patient}" method="post">
                 <label for="patient_name" th:text="${patient_doesnt_exist}"></label>
                 <input type="text" id="patient_name" class="form-control" th:field="*{name}">
                 <button type="submit" class="btn btn-primary">Подтвердить</button>
@@ -42,13 +41,36 @@
             <span th:if="${patient_exists}" th:text="${patient_exists}"></span>
         </li>
     </ul>
-    <p><a class="btn btn-primary btn-lg" href="/logout" role="button">Выйти из системы</a></p>
+    <p><a class="btn btn-primary" href="/logout" role="button">Выйти из системы</a></p>
 </div>
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <p class="text-muted">Elite Med &copy; 2023</p>
-    </div>
-</footer>
+<div class="container">
+    <h1>Записаться на прием</h1>
+    <!-- Форма для записи к врачу -->
+    <form method="post" th:action="@{/account.appointment}" th:object="${appointment}">
+        <!-- Выбор доктора -->
+        <div class="form-group">
+            <label for="doctor">Доктор</label>
+            <select class="form-control" id="doctor" th:field="*{doctor}" required>
+                <option value="">Выберите доктора</option>
+                <option th:each="doctor: ${doctors_list}" th:value="${doctor.id}" th:text="${doctor.position}"></option>
+            </select>
+        </div>
+        <!-- Выбор времени -->
+        <div>
+            <label for="time">Время:</label>
+            <select class="form-control" id="time" name="time" th:field="*{date}" required>
+                <option th:each="time : ${availableTimes}" th:value="${time}" th:text="${time}"></option>
+            </select>
+        </div>
+        <!-- Кнопка отправки формы -->
+        <button type="submit" class="btn btn-primary">Записаться</button>
+    </form>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Elite Med &copy; 2023</p>
+        </div>
+    </footer>
+</div>
 </body>
 </html>

@@ -6,7 +6,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "patient")
+@Table(name = "patients")
 @NoArgsConstructor
 public class Patient {
     @Id
@@ -24,14 +24,6 @@ public class Patient {
     public Patient(String name) {
         this.name = name;
     }
-
-    /*    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Game> games = new ArrayList<>();*/
-
-/*    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "author_id")
-    private Doctor author;*/
 
     @Override
     public String toString() {
